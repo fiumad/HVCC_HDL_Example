@@ -44,6 +44,6 @@ module tt_um_fiumad (
     endcase
   end
   // List all unused inputs to prevent warnings
-  wire _unused = &{ena, rst_n, uio_out};
+  wire _unused = &{ena, rst_n, uio_in[7:3], uio_out};
 
 endmodule
