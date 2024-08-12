@@ -26,7 +26,7 @@ module tt_um_fiumad (
   assign b = ui_in[3:0];
 
   reg [2:0] AluOp;
-  assign AluOp = uio_in[7:5];
+  assign AluOp = uio_in[2:0];
 
   reg [7:0] result;
   assign uo_out = result;
@@ -40,9 +40,10 @@ module tt_um_fiumad (
       3'b011: result <= a/b;
       3'b100: result <= a&b;
       3'b101: result <= a|b;
+      default: result <= 8'b0;
     endcase
   end
   // List all unused inputs to prevent warnings
-  wire _unused = &{ena, rst_n, uio_in[4:0], uio_out};
+  wire _unused = &{ena, rst_n, uio_out};
 
 endmodule
