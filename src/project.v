@@ -18,6 +18,7 @@ module tt_um_fiumad (
 
   // All output pins must be assigned. If not used, assign to 0.
   assign uio_oe  = 0;
+  assign uio_out = 0;
 
   reg [7:0] a;
   assign a = {4'b0000, ui_in[7:4]};
@@ -44,6 +45,6 @@ module tt_um_fiumad (
     endcase
   end
   // List all unused inputs to prevent warnings
-  wire _unused = &{ena, rst_n, uio_in[7:3], uio_out};
+  wire _unused = &{ena, rst_n, uio_in[7:3], uio_out[7:0]};
 
 endmodule
